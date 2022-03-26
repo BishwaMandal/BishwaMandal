@@ -33,7 +33,7 @@ int pop(struct stack *ptr)
 
 void display(struct stack *ptr)
 {
-    
+    ptr -> top;
 }
 
 int main()
