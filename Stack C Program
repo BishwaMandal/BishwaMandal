@@ -1,0 +1,75 @@
+#include<stdio.h>
+#define SIZE 5
+
+struct stack
+{
+    int top;
+    int item[SIZE];
+};
+
+void push(int x, struct stack *ptr)
+{
+    if (ptr -> top == SIZE-1)
+    {
+        printf("Stack Overflow\n");
+        return;
+    }
+    ptr -> top++;
+    ptr -> item[ptr -> top] = x;
+}
+
+int pop(struct stack *ptr)
+{
+    int temp;
+    if (ptr -> top == -1)
+    {
+        printf("Stack Underflow\n");
+        return -999;
+    }
+    temp = ptr -> item[ptr -> top];
+    ptr -> top--;
+    return temp;
+}
+
+void display(struct stack *ptr)
+{
+    
+}
+
+int main()
+{
+    int ch, flag = 1, val;
+    struct stack s;
+    s.top = -1;
+
+    while (flag == 1)
+    {
+        printf("1. Push\n2. Pop\n3. Display\n4. End\n");
+        printf("Enter your choice(1-4) : ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("Enter the value to push : ");
+            scanf("%d", &val);
+            push(val, &s);
+            break;
+        
+        case 2:
+            val = pop(&s);
+            if (val != -999)
+            {
+                printf("Popped Value = %d\n", val);
+            }
+            break;
+
+        case 3:
+
+        default:
+            printf("Nevermind Bye!\n");
+            break;
+        }
+    }
+    return 0;
+}
